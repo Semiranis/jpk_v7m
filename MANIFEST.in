@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include jpk_v7m_stub *.css
+recursive-include jpk_v7m_stub *.csv
+recursive-include jpk_v7m_stub *.html
+recursive-include jpk_v7m_stub *.ico
+recursive-include jpk_v7m_stub *.js
+recursive-include jpk_v7m_stub *.json
+recursive-include jpk_v7m_stub *.md
+recursive-include jpk_v7m_stub *.png
+recursive-include jpk_v7m_stub *.py
+recursive-include jpk_v7m_stub *.svg
+recursive-include jpk_v7m_stub *.txt
+recursive-exclude jpk_v7m_stub *.pyc
