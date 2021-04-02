@@ -7,7 +7,7 @@ def get_data():
 		{
 			"module_name": "JPK_V7M stub",
 			"color": "#3388cc",
-			"icon": "'octicon octicon-beaker'",
+			"icon": "file",
 			"type": "module",
 			"label": _("JPK_V7M stub")
 		}
