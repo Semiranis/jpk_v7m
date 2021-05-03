@@ -2,12 +2,12 @@
 from __future__ import unicode_literals
 from . import __version__ as app_version
 
-app_name = "jpk_v7m_stub"
-app_title = "JPK_V7M stub"
-app_publisher = "Marcin Lewicz"
-app_description = "Very limited app for creating JPK_V7M (Poland only). Requires specific configuration of ERPNext (especially chart of accounts). Feel free to use it as a base for your own implementaion."
-app_icon = "'octicon octicon-beaker'"
-app_color = "#3388cc"
+app_name = "jpk_v7m"
+app_title = "JPK_V7M"
+app_publisher = "Levitating Frog"
+app_description = "Experimental app for JPK_V7M"
+app_icon = "octicon octicon-file-directory"
+app_color = "grey"
 app_email = "none"
 app_license = "MIT"
 
@@ -15,15 +15,15 @@ app_license = "MIT"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/jpk_v7m_stub/css/jpk_v7m_stub.css"
-# app_include_js = "/assets/jpk_v7m_stub/js/jpk_v7m_stub.js"
+# app_include_css = "/assets/jpk_v7m/css/jpk_v7m.css"
+# app_include_js = "/assets/jpk_v7m/js/jpk_v7m.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/jpk_v7m_stub/css/jpk_v7m_stub.css"
-# web_include_js = "/assets/jpk_v7m_stub/js/jpk_v7m_stub.js"
+# web_include_css = "/assets/jpk_v7m/css/jpk_v7m.css"
+# web_include_js = "/assets/jpk_v7m/js/jpk_v7m.js"
 
 # include custom scss in every website theme (without file extension ".scss")
-# website_theme_scss = "jpk_v7m_stub/public/scss/website"
+# website_theme_scss = "jpk_v7m/public/scss/website"
 
 # include js, css files in header of web form
 # webform_include_js = {"doctype": "public/js/doctype.js"}
@@ -58,14 +58,14 @@ app_license = "MIT"
 # Installation
 # ------------
 
-# before_install = "jpk_v7m_stub.install.before_install"
-# after_install = "jpk_v7m_stub.install.after_install"
+# before_install = "jpk_v7m.install.before_install"
+# after_install = "jpk_v7m.install.after_install"
 
 # Desk Notifications
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "jpk_v7m_stub.notifications.get_notification_config"
+# notification_config = "jpk_v7m.notifications.get_notification_config"
 
 # Permissions
 # -----------
@@ -104,39 +104,39 @@ app_license = "MIT"
 
 # scheduler_events = {
 # 	"all": [
-# 		"jpk_v7m_stub.tasks.all"
+# 		"jpk_v7m.tasks.all"
 # 	],
 # 	"daily": [
-# 		"jpk_v7m_stub.tasks.daily"
+# 		"jpk_v7m.tasks.daily"
 # 	],
 # 	"hourly": [
-# 		"jpk_v7m_stub.tasks.hourly"
+# 		"jpk_v7m.tasks.hourly"
 # 	],
 # 	"weekly": [
-# 		"jpk_v7m_stub.tasks.weekly"
+# 		"jpk_v7m.tasks.weekly"
 # 	]
 # 	"monthly": [
-# 		"jpk_v7m_stub.tasks.monthly"
+# 		"jpk_v7m.tasks.monthly"
 # 	]
 # }
 
 # Testing
 # -------
 
-# before_tests = "jpk_v7m_stub.install.before_tests"
+# before_tests = "jpk_v7m.install.before_tests"
 
 # Overriding Methods
 # ------------------------------
 #
 # override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "jpk_v7m_stub.event.get_events"
+# 	"frappe.desk.doctype.event.event.get_events": "jpk_v7m.event.get_events"
 # }
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
 # along with any modifications made in other Frappe apps
 # override_doctype_dashboards = {
-# 	"Task": "jpk_v7m_stub.task.get_dashboard_data"
+# 	"Task": "jpk_v7m.task.get_dashboard_data"
 # }
 
 # exempt linked doctypes from being automatically cancelled

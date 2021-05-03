@@ -5,10 +5,10 @@ from frappe import _
 def get_data():
 	return [
 		{
-			"module_name": "JPK_V7M stub",
-			"color": "#3388cc",
-			"icon": "file",
+			"module_name": "JPK_V7M",
+			"color": "grey",
+			"icon": "octicon octicon-file-directory",
 			"type": "module",
-			"label": _("JPK_V7M stub")
+			"label": _("JPK_V7M")
 		}
 	]

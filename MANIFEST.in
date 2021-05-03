@@ -4,15 +4,15 @@ include *.json
 include *.md
 include *.py
 include *.txt
-recursive-include jpk_v7m_stub *.css
-recursive-include jpk_v7m_stub *.csv
-recursive-include jpk_v7m_stub *.html
-recursive-include jpk_v7m_stub *.ico
-recursive-include jpk_v7m_stub *.js
-recursive-include jpk_v7m_stub *.json
-recursive-include jpk_v7m_stub *.md
-recursive-include jpk_v7m_stub *.png
-recursive-include jpk_v7m_stub *.py
-recursive-include jpk_v7m_stub *.svg
-recursive-include jpk_v7m_stub *.txt
-recursive-exclude jpk_v7m_stub *.pyc
+recursive-include jpk_v7m *.css
+recursive-include jpk_v7m *.csv
+recursive-include jpk_v7m *.html
+recursive-include jpk_v7m *.ico
+recursive-include jpk_v7m *.js
+recursive-include jpk_v7m *.json
+recursive-include jpk_v7m *.md
+recursive-include jpk_v7m *.png
+recursive-include jpk_v7m *.py
+recursive-include jpk_v7m *.svg
+recursive-include jpk_v7m *.txt
+recursive-exclude jpk_v7m *.pyc

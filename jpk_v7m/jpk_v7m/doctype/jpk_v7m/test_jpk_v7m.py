@@ -6,5 +6,5 @@ from __future__ import unicode_literals
 # import frappe
 import unittest
 
-class TestJPK_V7MGenerator(unittest.TestCase):
+class TestJPK_V7M(unittest.TestCase):
 	pass

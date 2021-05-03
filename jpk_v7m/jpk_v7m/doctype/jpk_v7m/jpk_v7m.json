@@ -1,0 +1,221 @@
+{
+ "actions": [],
+ "creation": "2021-04-27 23:49:01.400520",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "guidance_section",
+  "guidance_text",
+  "guidance_accepted",
+  "section_break_2",
+  "year",
+  "is_amendment",
+  "amendment_reasons",
+  "column_break_3",
+  "month",
+  "forwarded_excess_of_input_tax",
+  "section_break_3",
+  "company",
+  "tax_id",
+  "email",
+  "first_name",
+  "date_of_birth",
+  "column_break_8",
+  "is_natural_person",
+  "tax_office_code",
+  "phone_number",
+  "last_name",
+  "amended_from",
+  "abbr",
+  "consecutive_number"
+ ],
+ "fields": [
+  {
+   "fieldname": "year",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Year",
+   "length": 4,
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "month",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Month",
+   "length": 2,
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "guidance_accepted",
+   "fieldtype": "Select",
+   "label": "Do you accept the guidance?",
+   "options": "\nYes",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "JPK_V7M",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "JPK Company Settings",
+   "options": "JPK Company Settings",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fetch_from": "company.abbr",
+   "fieldname": "abbr",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "abbr"
+  },
+  {
+   "default": "No",
+   "fieldname": "is_amendment",
+   "fieldtype": "Select",
+   "label": "Is it amendment?",
+   "options": "No\nYes",
+   "set_only_once": 1
+  },
+  {
+   "collapsible": 1,
+   "collapsible_depends_on": "eval:doc.guidance_accepted=='Yes';",
+   "fieldname": "guidance_section",
+   "fieldtype": "Section Break",
+   "label": "GUIDANCE"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_3",
+   "fieldtype": "Section Break"
+  },
+  {
+   "bold": 1,
+   "description": "W przypadku niewp\u0142acenia w obowi\u0105zuj\u0105cym terminie podatku podlegaj\u0105cego wp\u0142acie do urz\u0119du skarbowego lub wp\u0142acenia go w niepe\u0142nej wysoko\u015bci niniejsza deklaracja stanowi podstaw\u0119 do wystawienia tytu\u0142u wykonawczego, zgodnie z przepisami o post\u0119powaniu egzekucyjnym w administracji.\n<br><br>\nZa podanie nieprawdy lub zatajenie prawdy i przez to nara\u017cenie podatku na uszczuplenie grozi odpowiedzialno\u015b\u0107 przewidziana w przepisach Kodeksu karnego skarbowego.",
+   "fieldname": "guidance_text",
+   "fieldtype": "HTML",
+   "options": "<p>W przypadku niewp\u0142acenia w obowi\u0105zuj\u0105cym terminie podatku podlegaj\u0105cego wp\u0142acie do urz\u0119du skarbowego lub wp\u0142acenia go w niepe\u0142nej wysoko\u015bci niniejsza deklaracja stanowi podstaw\u0119 do wystawienia tytu\u0142u wykonawczego, zgodnie z przepisami o post\u0119powaniu egzekucyjnym w administracji.\n</p>\n<p>Za podanie nieprawdy lub zatajenie prawdy i przez to nara\u017cenie podatku na uszczuplenie grozi odpowiedzialno\u015b\u0107 przewidziana w przepisach Kodeksu karnego skarbowego.</p>",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "company.is_natural_person",
+   "fieldname": "is_natural_person",
+   "fieldtype": "Read Only",
+   "label": "Natural Person"
+  },
+  {
+   "depends_on": "eval:doc.is_natural_person=='Yes';",
+   "fetch_from": "company.first_name",
+   "fieldname": "first_name",
+   "fieldtype": "Read Only",
+   "hidden": 1,
+   "label": "First Name",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.is_natural_person=='Yes';",
+   "fetch_from": "company.last_name",
+   "fieldname": "last_name",
+   "fieldtype": "Read Only",
+   "label": "Last Name"
+  },
+  {
+   "depends_on": "eval:doc.is_natural_person=='Yes';",
+   "fetch_from": "company.date_of_birth",
+   "fieldname": "date_of_birth",
+   "fieldtype": "Read Only",
+   "label": "Date of birth"
+  },
+  {
+   "fetch_from": "company.tax_id",
+   "fieldname": "tax_id",
+   "fieldtype": "Read Only",
+   "label": "Tax ID"
+  },
+  {
+   "fetch_from": "company.tax_office_code",
+   "fieldname": "tax_office_code",
+   "fieldtype": "Read Only",
+   "label": "Tax Office Code"
+  },
+  {
+   "fetch_from": "company.email",
+   "fieldname": "email",
+   "fieldtype": "Read Only",
+   "label": "E-mail"
+  },
+  {
+   "fetch_from": "company.phone_number",
+   "fieldname": "phone_number",
+   "fieldtype": "Read Only",
+   "label": "Phone Number"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "forwarded_excess_of_input_tax",
+   "fieldtype": "Int",
+   "label": "Forwarded excess of input tax",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "amendment_reasons",
+   "fieldtype": "Text",
+   "label": "Amendment reasons (if any)",
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "consecutive_number",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Consecutive Number"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2021-04-28 21:56:07.540453",
+ "modified_by": "Administrator",
+ "module": "JPK_V7M",
+ "name": "JPK_V7M",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

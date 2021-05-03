@@ -1,0 +1,503 @@
+# Polish translation of JPK_V7M creator messages.
+# Copyright (C) 2021 Marcin Lewicz
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2021-04-27 21:12+CEST\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Marcin Lewicz <EMAIL@ADDRESS>\n"
+"Language-Team: Polish <LL@li.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: UTF-8\n"
+"Generated-By: pygettext.py 1.5\n"
+
+#: jpk_v7m_creator.py:245
+msgid "File name"
+msgstr "Nazwa pliku"
+
+#: jpk_v7m_creator.py:261
+msgid "GUIDANCE"
+msgstr "POUCZENIE"
+
+#: jpk_v7m_creator.py:262
+msgid ""
+"This return serves as a basis to issue an enforcement title document "
+"according\n"
+"to statutory provisions governing administrative enforcement procedure in "
+"cases\n"
+"where the tax due is not paid when due or is underpaid."
+msgstr ""
+"W przypadku niewpłacenia w obowiązującym terminie podatku podlegającego "
+"wpłacie\n"
+"do urzędu skarbowego lub wpłacenia go w niepełnej wysokości niniejsza "
+"deklaracja\n"
+"stanowi podstawę do wystawienia tytułu wykonawczego, zgodnie z przepisami o\n"
+"postępowaniu egzekucyjnym w administracji."
+
+#: jpk_v7m_creator.py:264
+msgid ""
+"For providing untrue information or concealing the truth resulting in the \n"
+"possible tax underpayment the taxable person shall bear liability according "
+"to \n"
+"the Code of Fiscal Offences."
+msgstr ""
+"Za podanie nieprawdy lub zatajenie prawdy i przez to narażenie podatku na\n"
+"uszczuplenie grozi odpowiedzialność przewidziana w przepisach Kodeksu "
+"karnego\n"
+"skarbowego."
+
+#: jpk_v7m_creator.py:268
+msgid "Do you accept above guidance?"
+msgstr "Akcpetujesz powyższe pouczenie?"
+
+#: jpk_v7m_creator.py:268 jpk_v7m_creator.py:289 jpk_v7m_creator.py:400
+#: jpk_v7m_creator.py:1016 jpk_v7m_creator.py:1021 jpk_v7m_creator.py:1377
+msgid " [y/N]: "
+msgstr " [t/N]: "
+
+#: jpk_v7m_creator.py:289
+msgid "Is it JPK amendment?"
+msgstr "Czy to jest korekta JPK?"
+
+#: jpk_v7m_creator.py:312
+msgid "Enter the 4-digit code of the Tax Office"
+msgstr "Wpisz 4-cyfrowy kod Urzędu Skarbowego"
+
+#: jpk_v7m_creator.py:337
+msgid "Enter JPK year if different than"
+msgstr "Wpisz rok JPK, jeśli inny niż"
+
+#: jpk_v7m_creator.py:368
+msgid "Enter JPK month if different than"
+msgstr "Wpisz miesiąc JPK, jeśli inny niż"
+
+#: jpk_v7m_creator.py:376
+msgid "JPK can be sent only for past months"
+msgstr "JPK można złożyć tylko za miesiące przeszłe"
+
+#: jpk_v7m_creator.py:382
+msgid "Wrong month number"
+msgstr "Zły numer miesiąca"
+
+#: jpk_v7m_creator.py:400
+msgid "Is the entity a natural person?"
+msgstr "Czy podmiot jest osobą fizyczną?"
+
+#: jpk_v7m_creator.py:425
+msgid "First name of natural person"
+msgstr "Pierwsze imię osoby fizycznej"
+
+#: jpk_v7m_creator.py:461
+msgid "Last name of natural person"
+msgstr "Nazwisko osoby fizycznej"
+
+#: jpk_v7m_creator.py:481
+msgid "Full name of legal person"
+msgstr "Nazwa pełna osoby prawnej"
+
+#: jpk_v7m_creator.py:502
+msgid "Birth date (YYYY-MM-DD)"
+msgstr "Data urodzenia (RRRR-MM-DD)"
+
+#: jpk_v7m_creator.py:542
+msgid "Tax number (10 digits)"
+msgstr "Numer VAT (10 cyfr)"
+
+#: jpk_v7m_creator.py:560
+msgid "E-mail address"
+msgstr "Adres e-mail"
+
+#: jpk_v7m_creator.py:608
+msgid "Phone number (optional)"
+msgstr "Numer telefonu (opcjonalny)"
+
+#: jpk_v7m_creator.py:636
+msgid "Carried forward excess of input tax"
+msgstr "Nadwyżka podatku naliczonego z poprzedniej deklaracji"
+
+#: jpk_v7m_creator.py:651
+msgid "Reasons of amendments (if any)"
+msgstr "Powody korekt (jeśli występują)"
+
+#: jpk_v7m_creator.py:1000
+msgid "Do you want to add input tax document?"
+msgstr "Dodać dokument związany z podatkiem naliczonym?"
+
+#: jpk_v7m_creator.py:1000 jpk_v7m_creator.py:1359
+msgid " [Y/n]: "
+msgstr " [T/n]: "
+
+#: jpk_v7m_creator.py:1006 jpk_v7m_creator.py:1365
+msgid "Data validation not implemented!"
+msgstr "Sprawdzanie poprawności danych nie zostało zaimplementowane!"
+
+#: jpk_v7m_creator.py:1006 jpk_v7m_creator.py:1365
+msgid "Warning"
+msgstr "Uwaga"
+
+#: jpk_v7m_creator.py:1008 jpk_v7m_creator.py:1369
+msgid "Party country code (2 letters)"
+msgstr "Numer kraju kontrahenta (2 litery)"
+
+#: jpk_v7m_creator.py:1009 jpk_v7m_creator.py:1370
+msgid "Party tax ID (10 digits)"
+msgstr "Numer VAT kontrahenta (10 cyfr)"
+
+#: jpk_v7m_creator.py:1010 jpk_v7m_creator.py:1371
+msgid "Party full name"
+msgstr "Pełna nazwa kontrahenta"
+
+#: jpk_v7m_creator.py:1011 jpk_v7m_creator.py:1372
+msgid "Document number"
+msgstr "Numer dokumentu"
+
+#: jpk_v7m_creator.py:1012
+msgid "Dcoument date (YYYY-MM-DD)"
+msgstr "Data dokumentu (RRRR-MM-DD)"
+
+#: jpk_v7m_creator.py:1013
+msgid "Document receipt date (optional)"
+msgstr "Data wpłynięcia dokumentu (opcjonalna)"
+
+#: jpk_v7m_creator.py:1014
+msgid "Document type (optional: MK - cash method, VAT_RR, WEW - internal)"
+msgstr ""
+"Typ dokumentu (opcjonalny: MK - metoda kasowa, VAT_RR, WEW - wewnętrzny)"
+
+#: jpk_v7m_creator.py:1016 jpk_v7m_creator.py:1377
+msgid "Split payment?"
+msgstr "Metoda podzielonej płatności?"
+
+#: jpk_v7m_creator.py:1021
+msgid "Import?"
+msgstr "Import?"
+
+#: jpk_v7m_creator.py:1031
+msgid "Fixed assets purchase amount (optional)"
+msgstr "Kwota netto zakupu środków trwałych (opcjonalna)"
+
+#: jpk_v7m_creator.py:1036 jpk_v7m_creator.py:1046
+msgid "Tax amount for above"
+msgstr "Kwota podatku od powyższego"
+
+#: jpk_v7m_creator.py:1041
+msgid "Other goods or services purchase amount"
+msgstr "Kwota netto zakupu innych towarów i usług"
+
+#: jpk_v7m_creator.py:1048
+msgid "Purchase amount with VAT margin invoice (optional)"
+msgstr "Kwota zakupu z fakturą VAT marża (opcjonalna)"
+
+#: jpk_v7m_creator.py:1050
+msgid " [y/N]"
+msgstr " [t/N] "
+
+#: jpk_v7m_creator.py:1050
+msgid "Do you want to fill tax amendment fields?"
+msgstr "Chcesz wypełnić pola związane z korektami podatku?"
+
+#: jpk_v7m_creator.py:1053
+msgid "Fixed assets input tax amendment (optional)"
+msgstr "Korekta podatku naliczonego od środków trwałych (opcjonalna)"
+
+#: jpk_v7m_creator.py:1054
+msgid "Other goods or services input tax amendment (optional)"
+msgstr ""
+"Korekta podatku naliczonego od pozostałych towarów i usług (opcjonalna)"
+
+#: jpk_v7m_creator.py:1055
+msgid "Input tax amendment due to unpaid invoice (optional)"
+msgstr ""
+"Korekta podatku naliczonego z powodu niezapłaconej faktury (opcjonalna)"
+
+#: jpk_v7m_creator.py:1056
+msgid ""
+"Input tax amendment due to payment of unpaid invoice (with previously "
+"amendet input tax like above) (optional)"
+msgstr ""
+"Korekta podatku naliczonego z powodu zapłacenia zaległej faktury (którą "
+"wcześniej skorygowano jak wyżej) (opcjonalna)"
+
+#: jpk_v7m_creator.py:1247
+msgid "Warning! Wrong tax value: "
+msgstr "Uwaga! Zła wartość podatku: "
+
+#: jpk_v7m_creator.py:1359
+msgid "Do you want to add output tax document?"
+msgstr "Dodać dokument związany z podatkiem należnym?"
+
+#: jpk_v7m_creator.py:1367
+msgid ""
+"For numbers:\n"
+" - don't use separators (type 1000 instead of 1 000 or 1,000)\n"
+" - use dot for fractional part (1000.00)\n"
+msgstr ""
+"Dla liczb:\n"
+" - nie używaj separatorów (wpisz 1000 zamiast 1 000 czy 1,000)\n"
+" - używaj kropki do części ułamkowych (1000.00)\n"
+
+#: jpk_v7m_creator.py:1373
+msgid "Document date (YYYY-MM-DD)"
+msgstr "Data dokumentu (RRRR-MM-DD)"
+
+#: jpk_v7m_creator.py:1374
+msgid "Sales date (if other than document date)"
+msgstr "Data sprzedaży (jeśli inna niż data dokumentu)"
+
+#: jpk_v7m_creator.py:1375
+#, fuzzy
+msgid ""
+"Document type (optional: RO - cash register sales report, WEW - internal, FP "
+"- receipt based invoice)"
+msgstr ""
+"Typ dokumentu (opcjonalny: RO - raport okresowy z kasy fiskalnej, "
+"WEW - wewnętrzny, FP - faktura do paragonu)"
+
+#: jpk_v7m_creator.py:1383
+msgid ""
+"All descriptions are indicative only. Check full requirements in official "
+"JPK documentation!"
+msgstr ""
+"Wszystkie opisy są tylko orientacyjne. Sprawdź dokładne wymagania w "
+"oficjalnej dokumentacji JPK!"
+
+#: jpk_v7m_creator.py:1386
+msgid "Type 1 or leave blank"
+msgstr "Wpisz 1 lub pozostaw puste"
+
+#: jpk_v7m_creator.py:1389
+msgid "GTU_01 (alcohols)? "
+msgstr "GTU_01 (alkohole)? "
+
+#: jpk_v7m_creator.py:1390
+msgid "GTU_02 (fuels and oils)? "
+msgstr "GTU_02 (paliwa i oleje)? "
+
+#: jpk_v7m_creator.py:1391
+msgid "GTU_03 (oils and greases)? "
+msgstr "GTU_03 (oleje i smary)? "
+
+#: jpk_v7m_creator.py:1392
+msgid "GTU_04 (tobacco and other smoking and vaping products)? "
+msgstr "GTU_04 (tytoń i inne artykuły do palenia)? "
+
+#: jpk_v7m_creator.py:1393
+msgid "GTU_05 (waste and recyclable materials)? "
+msgstr "GTU_05 (odpady i surowce wtórne)? "
+
+#: jpk_v7m_creator.py:1394
+msgid "GTU_06 (electronics, printing, stretch foil)? "
+msgstr "GTU_06 (elektronika, drukarki, folia stretch)? "
+
+#: jpk_v7m_creator.py:1395
+msgid "GTU_07 (vehicles, parts, accessories)? "
+msgstr "GTU_07 (pojazdy, części, akcesoria)? "
+
+#: jpk_v7m_creator.py:1396
+msgid "GTU_08 (metals)? "
+msgstr "GTU_08 (metale)? "
+
+#: jpk_v7m_creator.py:1397
+msgid "GTU_09 (pharmacy)? "
+msgstr "GTU_09 (farmacja)? "
+
+#: jpk_v7m_creator.py:1398
+msgid "GTU_10 (real estates)? "
+msgstr "GTU_10 (nieruchomości)? "
+
+#: jpk_v7m_creator.py:1399
+msgid "GTU_11 (greenhouse gases)? "
+msgstr "GTU_11 (gazy cieplarniane)? "
+
+#: jpk_v7m_creator.py:1400
+msgid "GTU_12 (intangible services)? "
+msgstr "GTU_12 (usługi niematerialne)? "
+
+#: jpk_v7m_creator.py:1401
+msgid "GTU_13 (transport and storage services)? "
+msgstr "GTU_13 (usługi transportowe i magazynowe)? "
+
+#: jpk_v7m_creator.py:1403
+msgid "SW (mail order to other EU country)? "
+msgstr "SW (sprzedaż wysyłkowa do innego kraju w UE)? "
+
+#: jpk_v7m_creator.py:1404
+msgid "EE (telecommunication, broadcasting or electronic services)? "
+msgstr "EE (usługi telekomunikacyjne, nadawcze i elektroniczne)? "
+
+#: jpk_v7m_creator.py:1405
+msgid "TP (related entity)? "
+msgstr "TP (podmiot powiązany)? "
+
+#: jpk_v7m_creator.py:1406
+msgid "TT_WNT (EU purchase in traingle transaction, simplified procedure)? "
+msgstr "TT_WNT (zakup w transakcji trójstronnej w UE, procedura uproszczona)? "
+
+#: jpk_v7m_creator.py:1407
+msgid "TT_D (delivery in traingle transaction, simplified procedure)? "
+msgstr "TT_D (dostawa w transakcji trójstronnej w UE, procedura uproszczona)? "
+
+#: jpk_v7m_creator.py:1408
+msgid "MR_T (VAT margin - tourism)? "
+msgstr "MR_T (VAT marża - turystyka)? "
+
+#: jpk_v7m_creator.py:1409
+msgid "MR_UZ (VAT margin - used goods, art, antiques, collectibles)? "
+msgstr ""
+"MR_UZ (VAT marża - towary używane, kolekcjonerskie, dzieła sztuki, antyki)? "
+
+#: jpk_v7m_creator.py:1410
+msgid "I_42 (delivery to other EU country after import with procedure 42)? "
+msgstr "I_42 (dostawa do innego kraju w UE po imporcie z procedurą 42)? "
+
+#: jpk_v7m_creator.py:1411
+msgid "I_63 (delivery to other EU country after import with procedure 63)? "
+msgstr "I_63 (dostawa do innego kraju w UE po imporcie z procedurą 63)? "
+
+#: jpk_v7m_creator.py:1412
+msgid "B_SPV (single purpose voucher)? "
+msgstr "B_SPV (bon jednego przeznaczenia)? "
+
+#: jpk_v7m_creator.py:1413
+msgid "B_SPV_DOSTAWA (delivery based on single purpose voucher)? "
+msgstr "B_SPV_DOSTAWA (dostawa na podstawie bonu jednego przeznaczenia)? "
+
+#: jpk_v7m_creator.py:1414
+msgid "B_MPV_PROWIZJA (multi purpose voucher - brokerage)? "
+msgstr "B_MPV_PROWIZJA (bon różnego przeznaczenia - pośrednictwo)? "
+
+#: jpk_v7m_creator.py:1415
+msgid "Amendment (increasing or decreasing) related to bad debt relief? "
+msgstr "Korekta (w górę lub w dół) związana z ulgą na złe długi? "
+
+#: jpk_v7m_creator.py:1416
+msgid "K_10 - Net amount for tax exempt"
+msgstr "K_10 - Wartość sprzedaży netto zwolnionej z podatku"
+
+#: jpk_v7m_creator.py:1417
+msgid "K_11 - Sales abroad"
+msgstr "K_11 - Wartość netto sprzedaży za granicę"
+
+#: jpk_v7m_creator.py:1418
+msgid "K_12 - of which sales of services to the EU"
+msgstr "K_12 - w tym sprzedaż usług do UE"
+
+#: jpk_v7m_creator.py:1419
+msgid "K_13 - Net amount for tax 0%"
+msgstr "K_13 - Wartość netto opodatkowana 0%"
+
+#: jpk_v7m_creator.py:1420
+msgid "K_14 - of which tax returned to tourist"
+msgstr "K_14 - w tym zwrot podatku turyście"
+
+#: jpk_v7m_creator.py:1421
+msgid "K_15 - Net amount for tax 5%"
+msgstr "K_15 - Wartość netto opodatkowana 5%"
+
+#: jpk_v7m_creator.py:1422
+msgid "K_16 - Tax amount (5%)"
+msgstr "K_16 - Wartość podaktu (5%)"
+
+#: jpk_v7m_creator.py:1423
+msgid "K_17 - Net amount for tax 7% or 8%"
+msgstr "K_17 - Wartość netto opodatkowana 7% lub 8%"
+
+#: jpk_v7m_creator.py:1424
+msgid "K_18 - Tax amount (7% or 8%)"
+msgstr "K_18 - Wartość podatku (7% lub 8%)"
+
+#: jpk_v7m_creator.py:1425
+msgid "K_19 - Net amount for tax 22% or 23%"
+msgstr "K_19 - Wartość netto opodatkowana 22% lub 23%"
+
+#: jpk_v7m_creator.py:1426
+msgid "K_20 - Tax amount (22% or 23%)"
+msgstr "K_20 - Wartość podatku (22% lub 23%)"
+
+#: jpk_v7m_creator.py:1427
+msgid "K_21 - Net amount sales of goods to the EU"
+msgstr "K_21 - Wartość netto sprzedaż towarów do UE"
+
+#: jpk_v7m_creator.py:1428
+msgid "K_22 - Net amount sales of goods exported"
+msgstr "K_22 - Wartość netto export"
+
+#: jpk_v7m_creator.py:1429
+msgid "K_23 - Net amount purchase of goods from EU"
+msgstr "K_23 - Wartość netto zakup towarów z UE"
+
+#: jpk_v7m_creator.py:1430
+msgid "K_24 - Tax amount (purchase of goods from EU)"
+msgstr "K_24 - Wartość podatku (zakup towarów z UE)"
+
+#: jpk_v7m_creator.py:1431
+msgid "K_25 - Net amount import in simplified procedure"
+msgstr "K_25 - Wartość netto import w procedurze uproszczonej"
+
+#: jpk_v7m_creator.py:1432
+msgid "K_26 - Tax amount (import in simplified procedure)"
+msgstr "K_26 - Wartość podatku (import w procedurze uproszczonej)"
+
+#: jpk_v7m_creator.py:1433
+msgid ""
+"K_27 - Net amount import of services except acc. to  art. 28b (supplier paid "
+"tax in other country)"
+msgstr ""
+"K_27 - Wartość netto import usług oprócz art. 28b (dostawca zapłacił podatek "
+"w innym kraju)"
+
+#: jpk_v7m_creator.py:1434
+msgid "K_28 - Tax amount (import of services except acc. to art. 28b)"
+msgstr "K_28 - Wartość podatku (import usług oprócz art. 28b)"
+
+#: jpk_v7m_creator.py:1435
+msgid ""
+"K_29 - Net amount import of services acc. to art. 28b (tax to be paid by "
+"buyer in Poland, most common case)"
+msgstr ""
+"K_29 - Wartość netto import usług wg art. 28b (nabywca musi zapłacić "
+"podatek, najczęstszy przypadek)"
+
+#: jpk_v7m_creator.py:1436
+msgid "K_30 - Tax amount (import of services acc. to art. 28b)"
+msgstr "K_30 - Wartość podatku (import usług wg art. 28b)"
+
+#: jpk_v7m_creator.py:1437
+msgid "K_31 - Net amount sales where tax will be paid by buyer"
+msgstr "K_31 - Wartość netto sprzedaż, w której podatek zapłaci nabywca"
+
+#: jpk_v7m_creator.py:1438
+msgid "K_32 - Tax amount that will be paid by buyer"
+msgstr "K_32 - Wartość podatku, który zapłaci nabywca"
+
+#: jpk_v7m_creator.py:1439
+msgid ""
+"K_33 - Tax amount acc. to art.15 sec.5 (physical inventory e.g. on closure "
+"of business)"
+msgstr ""
+"K_33 - Wartość podatku wg art.15 ust.5 (spis z natury np. przy zamykaniu "
+"firmy)"
+
+#: jpk_v7m_creator.py:1440
+msgid ""
+"K_34 - Repayment of tax refunded or deducted on purchase of cash registers "
+"(e.g. closure of business, lack of service inspection)"
+msgstr ""
+"K_34 - Zwrot ulgi na zakup kas (np. zamknięcie firmy, brak przeglądu w "
+"terminie)"
+
+#: jpk_v7m_creator.py:1441
+msgid "K_35 - Tax amount purchase of means of transport from EU"
+msgstr "K_35 - Wartość podatku zakup środków transportu z UE"
+
+#: jpk_v7m_creator.py:1442
+msgid "K_36 - Tax amount acc. to art. 103 sec. 5aa (purchase of fuels from EU)"
+msgstr "K_36 - Wartość podatku wg art. 103 ust. 5aa (zakup paliw itd. z UE)"
+
+#: jpk_v7m_creator.py:1443
+msgid "Gross amount of sales with VAT margin invoice"
+msgstr "Wartość brutto sprzedaż faktura VAT marża"

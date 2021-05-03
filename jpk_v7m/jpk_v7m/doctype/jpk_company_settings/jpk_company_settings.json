@@ -1,0 +1,164 @@
+{
+ "actions": [],
+ "autoname": "field:company",
+ "creation": "2021-04-27 22:26:56.889575",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "company_section",
+  "company",
+  "section_break_2",
+  "company_name",
+  "tax_office_code",
+  "column_break_3",
+  "tax_id",
+  "is_natural_person",
+  "natural_person_section",
+  "first_name",
+  "column_break_13",
+  "last_name",
+  "date_of_birth",
+  "contact_data_section",
+  "email",
+  "column_break_16",
+  "phone_number",
+  "abbr"
+ ],
+ "fields": [
+  {
+   "bold": 1,
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fetch_from": "company.company_name",
+   "fieldname": "company_name",
+   "fieldtype": "Read Only",
+   "label": "Company Name",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "company.tax_id",
+   "fieldname": "tax_id",
+   "fieldtype": "Read Only",
+   "label": "Tax ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "is_natural_person",
+   "fieldtype": "Select",
+   "label": "Entity is natural person",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.is_natural_person=='Yes';",
+   "fieldname": "first_name",
+   "fieldtype": "Data",
+   "label": "First Name",
+   "mandatory_depends_on": "eval:doc.is_natural_person=='Yes';"
+  },
+  {
+   "fieldname": "column_break_3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.is_natural_person=='Yes'",
+   "fieldname": "natural_person_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.is_natural_person=='Yes';",
+   "fieldname": "last_name",
+   "fieldtype": "Data",
+   "label": "Last Name",
+   "mandatory_depends_on": "eval:doc.is_natural_person=='Yes';"
+  },
+  {
+   "fieldname": "tax_office_code",
+   "fieldtype": "Data",
+   "label": "Tax Office Code",
+   "length": 4,
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.is_natural_person=='Yes'",
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth",
+   "mandatory_depends_on": "eval:doc.is_natural_person=='Yes';"
+  },
+  {
+   "depends_on": "eval:doc.__islocal;",
+   "fieldname": "company_section",
+   "fieldtype": "Section Break",
+   "label": "Company"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Contact e-mail",
+   "reqd": 1
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone Number (optional)"
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Will be used by Tax Office",
+   "fieldname": "contact_data_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_16",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "company.abbr",
+   "fieldname": "abbr",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "abbr",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-04-28 13:25:20.968196",
+ "modified_by": "Administrator",
+ "module": "JPK_V7M",
+ "name": "JPK Company Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

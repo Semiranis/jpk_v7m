@@ -1,6 +1,6 @@
-## JPK_V7M stub
+## JPK_V7M
 
-Very limited app for creating JPK_V7M (Poland only). Requires specific configuration of ERPNext (especially chart of accounts). Feel free to use it as a base for your own implementaion.
+Experimental app for JPK_V7M
 
 #### License
 
