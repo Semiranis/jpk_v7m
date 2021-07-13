@@ -19,10 +19,36 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "JPK_V7M",
+   "label": "Documents",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "JPK_V7M",
+   "link_to": "JPK_V7M",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "JPK Tax Office Codes",
+   "link_to": "JPK Tax Office",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   },
   {
    "hidden": 0,
@@ -36,14 +62,22 @@
   {
    "hidden": 0,
    "is_query_report": 0,
-   "label": "JPK_V7M",
-   "link_to": "JPK_V7M",
+   "label": "Tools",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "JPK Tax Office Codes Importer",
+   "link_to": "JPK Tax Office Importer",
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
   }
  ],
- "modified": "2021-04-28 01:09:07.940438",
+ "modified": "2021-07-13 14:17:25.925715",
  "modified_by": "Administrator",
  "module": "JPK_V7M",
  "name": "JPK",

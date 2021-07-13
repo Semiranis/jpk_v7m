@@ -10,6 +10,7 @@
   "company",
   "section_break_2",
   "company_name",
+  "tax_office",
   "tax_office_code",
   "column_break_3",
   "tax_id",
@@ -85,8 +86,9 @@
    "mandatory_depends_on": "eval:doc.is_natural_person=='Yes';"
   },
   {
+   "fetch_from": "tax_office.code",
    "fieldname": "tax_office_code",
-   "fieldtype": "Data",
+   "fieldtype": "Read Only",
    "label": "Tax Office Code",
    "length": 4,
    "reqd": 1
@@ -135,11 +137,18 @@
    "hidden": 1,
    "label": "abbr",
    "read_only": 1
+  },
+  {
+   "fieldname": "tax_office",
+   "fieldtype": "Link",
+   "label": "Tax Office",
+   "options": "JPK Tax Office",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-04-28 13:25:20.968196",
+ "modified": "2021-07-13 14:09:25.841624",
  "modified_by": "Administrator",
  "module": "JPK_V7M",
  "name": "JPK Company Settings",
