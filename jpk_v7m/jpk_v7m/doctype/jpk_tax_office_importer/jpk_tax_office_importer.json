@@ -1,0 +1,56 @@
+{
+ "actions": [],
+ "creation": "2021-07-13 13:53:52.857835",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "xsd_file",
+  "update_existing",
+  "process"
+ ],
+ "fields": [
+  {
+   "description": "Use XSD provided by Polish Ministry of Finance, e.g. KodyUrzedowSkarbowych_v7-0E.xsd",
+   "fieldname": "xsd_file",
+   "fieldtype": "Attach",
+   "in_list_view": 1,
+   "label": "XSD File",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "update_existing",
+   "fieldtype": "Check",
+   "label": "Update Existing Tax Offices"
+  },
+  {
+   "fieldname": "process",
+   "fieldtype": "Button",
+   "label": "Import"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2021-07-17 01:46:59.466567",
+ "modified_by": "Administrator",
+ "module": "JPK_V7M",
+ "name": "JPK Tax Office Importer",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

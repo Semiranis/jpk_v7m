@@ -100,5 +100,5 @@ function call_jpk_creator(frm)
 		// refresh attachments list
 		frm.attachments.attachment_uploaded(file_name);
         	}
-    })	
+        })	
 }
