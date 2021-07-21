@@ -14,5 +14,9 @@ function import_tax_office_codes(frm) {
 	frappe.show_alert("Import started. Please wait...", 5);
 
 	frm.call('import_from_xsd', {xsd: file_path, update_existing: update})
-	.then( r => {msgprint(r.message);});
+	.then( r => {msgprint({
+		title: __('Import report'),
+		message: __(r.message)
+		});
+	});
 }

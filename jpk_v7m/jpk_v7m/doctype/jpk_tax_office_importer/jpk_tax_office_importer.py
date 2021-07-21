@@ -28,21 +28,32 @@ class JPKTaxOfficeImporter(Document):
 
 		codes = restrictions[type_name]
 
-		updated_codes = 0
 		new_codes = 0
+		updated_codes = 0
+		updated_names = 0
 
 		for code in codes:
-			if not frappe.db.exists("JPK Tax Office", codes[code]):
-				new_codes += 1
-				# create new "JPK Tax Office" type document
-				tax_office = frappe.get_doc({'doctype': 'JPK Tax Office', "code": code, "tax_office": codes[code]})
-				# save the document
-				tax_office.insert()
-			elif update_existing:
-				updated_codes += 1
-				tax_office = frappe.get_doc("JPK Tax Office", codes[code])
-				tax_office.code = code
-				tax_office.save()
-			# TODO: same code but tax office name changed
+			# can be only one (or zero), because code is unique
+			existing_tax_office = frappe.db.get_list("JPK Tax Office", filters = {'code': code})
 
-		return "Import coplete. " + str(new_codes) + " added, " + str(updated_codes) + " updated, " + str(len(codes)) + " found in XSD."
+			if len(existing_tax_office):
+				current_name = existing_tax_office[0].name
+				new_name = codes[code]
+				
+				if update_existing and current_name != new_name:
+					updated_names += 1
+					frappe.rename_doc("JPK Tax Office", current_name, new_name)
+			else:
+				if not frappe.db.exists("JPK Tax Office", codes[code]):
+					new_codes += 1
+					# create new "JPK Tax Office" type document
+					tax_office = frappe.get_doc({'doctype': 'JPK Tax Office', "code": code, "tax_office": codes[code]})
+					# save the document
+					tax_office.insert()
+				elif update_existing:
+					updated_codes += 1
+					tax_office = frappe.get_doc("JPK Tax Office", codes[code])
+					tax_office.code = code
+					tax_office.save()
+
+		return "<p>Number of tax offices added: " + str(new_codes) + "<br>Updated codes: " + str(updated_codes) + "<br>Updated names: " + str(updated_names) + "</p><p>Number of tax offices found in XSD: " + str(len(codes)) + "</p>"
