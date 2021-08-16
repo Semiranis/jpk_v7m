@@ -24,7 +24,14 @@
   "email",
   "column_break_16",
   "phone_number",
-  "abbr"
+  "abbr",
+  "tax_accounts_section",
+  "input_tax_accounts",
+  "output_tax_accounts",
+  "lists_of_accounts_section",
+  "refresh_lists",
+  "input_tax_accounts_list",
+  "output_tax_accounts_list"
  ],
  "fields": [
   {
@@ -144,11 +151,54 @@
    "label": "Tax Office",
    "options": "JPK Tax Office",
    "reqd": 1
+  },
+  {
+   "description": "You can select individual accounts and / or groups of accounts. If you select any group, all sub accounts will be used.",
+   "fieldname": "tax_accounts_section",
+   "fieldtype": "Section Break",
+   "label": "Tax Accounts"
+  },
+  {
+   "fieldname": "input_tax_accounts",
+   "fieldtype": "Table",
+   "label": "Input Tax Accounts",
+   "options": "JPK Tax Accounts Table Item"
+  },
+  {
+   "fieldname": "output_tax_accounts",
+   "fieldtype": "Table",
+   "label": "Output Tax Accounts",
+   "options": "JPK Tax Accounts Table Item"
+  },
+  {
+   "description": "Lists of separate accounts for reference. Contain accounts included in groups selected in above tables.",
+   "fieldname": "lists_of_accounts_section",
+   "fieldtype": "Section Break",
+   "label": "Lists of Accounts"
+  },
+  {
+   "fieldname": "input_tax_accounts_list",
+   "fieldtype": "Table",
+   "label": "Input Tax Accounts List",
+   "options": "JPK Tax Accounts Table Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "output_tax_accounts_list",
+   "fieldtype": "Table",
+   "label": "Output Tax Accounts List",
+   "options": "JPK Tax Accounts Table Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "refresh_lists",
+   "fieldtype": "Button",
+   "label": "Refresh Lists"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-07-13 14:09:25.841624",
+ "modified": "2021-08-13 14:38:27.369952",
  "modified_by": "Administrator",
  "module": "JPK_V7M",
  "name": "JPK Company Settings",
