@@ -28,7 +28,11 @@
   "last_name",
   "amended_from",
   "abbr",
-  "consecutive_number"
+  "consecutive_number",
+  "tax_accounts_section",
+  "input_tax_accounts",
+  "column_break_27",
+  "output_tax_accounts"
  ],
  "fields": [
   {
@@ -191,12 +195,35 @@
    "fieldtype": "Int",
    "hidden": 1,
    "label": "Consecutive Number"
+  },
+  {
+   "fieldname": "input_tax_accounts",
+   "fieldtype": "Table",
+   "label": "Input Tax Accounts",
+   "options": "JPK Tax Accounts Table Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "output_tax_accounts",
+   "fieldtype": "Table",
+   "label": "Output Tax Accounts",
+   "options": "JPK Tax Accounts Table Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tax_accounts_section",
+   "fieldtype": "Section Break",
+   "label": "Tax Accounts"
+  },
+  {
+   "fieldname": "column_break_27",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2021-04-28 21:56:07.540453",
+ "modified": "2021-08-17 19:18:16.675114",
  "modified_by": "Administrator",
  "module": "JPK_V7M",
  "name": "JPK_V7M",

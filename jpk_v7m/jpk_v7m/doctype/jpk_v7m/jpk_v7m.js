@@ -38,6 +38,12 @@ frappe.ui.form.on('JPK_V7M', {
 			if(cur_frm.is_dirty()) frappe.msgprint("Dokument nie jest zapisany");
 			else call_jpk_creator(cur_frm);
 		})
+	},
+	
+	"company": function(frm) {
+		if(frm.doc.company) {
+			refresh_tax_accounts_tables(frm);
+		}
 	}
 });
 
@@ -75,6 +81,18 @@ function call_jpk_creator(frm)
 	var amendment_reasons = "";
 	var reasons_value = frm.fields_dict["amendment_reasons"].value;
 	if (reasons_value) amendment_reasons = reasons_value;
+	
+	var input_tax_accounts = frm.doc.input_tax_accounts;
+	var output_tax_accounts = frm.doc.output_tax_accounts;
+
+	var input_tax_accounts_list = [];
+	var output_tax_accounts_list = [];
+
+	input_tax_accounts.forEach(function(d) { input_tax_accounts_list.push(d.account_name);});
+	output_tax_accounts.forEach(function(d) { output_tax_accounts_list.push(d.account_name);});
+
+	console.log(input_tax_accounts_list);
+	console.log(output_tax_accounts_list);
 
 	frm.call('get_jpk', {
 	        is_guidance_accepted: is_guidance_accepted,
@@ -91,7 +109,9 @@ function call_jpk_creator(frm)
 	        email: email,
 	        phone: phone,
 	        forwarded_excess_of_input_tax: forwarded_excess_of_input_tax,
-	        amendment_reasons: amendment_reasons
+	        amendment_reasons: amendment_reasons,
+		input_tax_accounts: input_tax_accounts_list,
+		output_tax_accounts: output_tax_accounts_list
 	})
 	.then(r => {
 		if (r.message) {
@@ -101,4 +121,22 @@ function call_jpk_creator(frm)
 		frm.attachments.attachment_uploaded(file_name);
         	}
         })	
+}
+
+function refresh_tax_accounts_tables(frm) {
+	refresh_tax_accounts_table(frm, "input_tax_accounts", "input_tax_accounts_list");
+	refresh_tax_accounts_table(frm, "output_tax_accounts", "output_tax_accounts_list");
+}
+
+function refresh_tax_accounts_table(frm, target_doc_table, source_doc_table) {
+
+	frm.clear_table(target_doc_table);
+
+	frappe.model.with_doc('JPK Company Settings', frm.doc.company, function () {
+		let source_doc = frappe.model.get_doc('JPK Company Settings', frm.doc.company);
+		$.each(source_doc[source_doc_table], function (index, source_row) {
+			frm.add_child(target_doc_table).account_name = source_row.account_name;
+			frm.refresh_field(target_doc_table);
+		});
+	});
 }

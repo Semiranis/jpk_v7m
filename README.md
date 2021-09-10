@@ -1,6 +1,6 @@
 ## JPK_V7M
 
-Experimental app for JPK_V7M
+Partial implementation of JPK_V7M for ERPNext
 
 #### License
 

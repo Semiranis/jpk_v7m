@@ -59,7 +59,7 @@ app_license = "MIT"
 # ------------
 
 # before_install = "jpk_v7m.install.before_install"
-# after_install = "jpk_v7m.install.after_install"
+after_install = "jpk_v7m.install.after_install"
 
 # Desk Notifications
 # ------------------

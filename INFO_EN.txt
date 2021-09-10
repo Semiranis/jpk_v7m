@@ -1,0 +1,5 @@
+If you are a user: you probably have to know Polish, so check INFO_PL.txt file.
+
+If you are a developer: You should know English. Search for informations in following files:
+- if you are new to ERPNext: check info_for_developers.txt
+- if you have basic knowledge about ERPNext: most things are documented in source code in subfolders of jpk_v7m/jpk_v7m/jpk_v7m/doctype/, jpk_v7m/jpk_v7m/helpers, jpk_v7m/jpk_v7m/external_tools and file jpk_v7m/jpk_v7m/install.py.

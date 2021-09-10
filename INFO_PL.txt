@@ -1,0 +1,159 @@
+Instrukcja do JPK_V7M
+
+*Informacje początkowe*
+
+UWAGA: Większość tekstu dotyczy używania ERPNext, a nie samej aplikacji. Używanie aplikacji JPK_V7M jest bardzo proste, jeśli używa się całego ERPNext zgodnie z tym, czego oczekuje aplikacja. Po jednorazowej konfiguracji używanie aplikacji zwykle ogranicza się do kilku kliknięć - reszta zostaje wczytana automatycznie.
+
+Aplikacja tworzy plik XML, który należy wysłać przy pomocy narzędzi udostępnionych przez ministerstwo. Automatyczne wysyłanie pliku nie zostało zaimplementowane.
+
+Aplikacja w obecnym stanie nie spełni wszystkich wymagań każdej firmy, ale każdy może na własną rękę rozszerzyć jej możliwości. Pomóc w tym mogą komentarze dodane do plików źródłowych i instrukcja dla programistów znajdująca się w oddzielnym pliku info_for_developers.txt.
+
+W obecnym stanie aplikacja będzie wystarczająca dla firmy, która prowadzi stosunkowo prostą działalność:
+- Kupuje towary w Polsce, w UE i importuje w procedurze standardowej (nie uproszczonej)
+- Kupuje usługi tylko w Polsce
+- Sprzedaje towary tylko do firm w Polsce (nie do osób prywatnych)
+- Wystawia faktury w dniu sprzedaży
+- Nie importuje usług
+- Nie ma żadnej styczności z fakturami "marża"
+- Nie ma żadnej styczności z fakturami "metoda kasowa"
+- Nie ma kas fiskalnych
+- Nie wystawia faktur dla turystów, zwolnionych z podatku i innych szczególnych przypadków
+- Nie kupuje środków transportu ani paliw itp. z UE
+- Nie wystawia bonów, nie handluje bonami
+- Nie sprzedaje towarów podlegających pod oznaczenia GTU
+- Nie ma potrzeby wystawienia korekty JPK
+
+Co jest zaimplementowane:
+- Nagłówek pliku JPK_V7M
+- Ewidencja "zwykłych" faktur krajowych
+- Ewidencja importu towarów w procedurze standardowej
+- Ewidencja zakupu towarów z UE, ale nie środków trwałych, pojazdów, paliw itd.
+- Ewidencja sprzedaży ze stawkami 7%, 8%, 22% i 23%
+- Deklaracja zakupu środków trwałych od dostawców z Polski
+- Deklaracja zakupu pozostałych towarów i usług (uwaga: środki trwałe spoza Polski są doliczane do tej kwoty, ponieważ rozróżnianie ich od pozostałych towarów i usług nie zostało jeszcze zaimplementowane)
+- oznaczenie MPP w fakturach zakupu i sprzedaży (trzeba je ustawić ręcznie na fakturze, wtedy zostanie dodane do JPK)
+- oznaczenie IMP w SAD/PZC
+
+Co nie jest zaimplementowane w obecnej wersji:
+- oznaczenie TP w fakturach sprzedaży
+- Deklaracja zakupu środków trwałych z UE i z importu
+- Korekty JPK
+- Korekty faktur sprzedaży
+- Korekty faktur zakupu
+- Data sprzedaży, jeśli inna niż data wystawienia faktury sprzedaży
+- Automatyczne ustawianie oznaczenie IMP (na podstawie kodu kraju dostawcy)
+- Automatyczne przeniesienie nadwyżki podatku naliczonego z poprzedniego miesiąca
+- Kody GTU
+- Automatyczne ustawianie MPP na fakturach sprzedaży (wymaga dodania najpierw kodów GTU)
+- Oznaczenia: WEW dla zakupu i sprzedaży
+- Oznaczenia: RO
+- Oznaczenia: MK, VAT_RR, FP
+- Korekty podatku od środków trwałych i od pozostałych towarów i usług
+- VAT od towrów objętych spisem z natury wg art.14 ust.5 ustawy
+- Kara za złe długi
+- Ulga na złe długi
+- Faktury ze zwrotem podatku turyście
+- Data wpłynięcia faktury zakupu (nie jest wymagana w JPK)
+- Faktury zakupu VAT Marża
+- Zakup środków transportu z UE
+- Zakup z UE wg art. 103 ust. 5aa (zakup paliw itd.)
+- Sprzedaż VAT marża
+- Sprzedaż zwolniona z podatku
+- Sprzedaż ze stawką 0%
+- Sprzedaż za granicę (do UE i poza UE)
+- Oznaczenie SW
+- Sprzedaż, w której VAT zapłaci nabywca
+- Faktury Marża (MR_T, MR_UZ)
+- Bony (B_SPV, B_SPV_DOSTAWA, B_MPV_PROWIZJA)
+- Transakcje trójstronne (TT_WNT, TT_D, I_42, I_63)
+- Import w procedurze uproszczonej
+- Import usług (wg art. 28b i pozostałe)
+- Oznaczenie EE
+- Ulga i zwrot ulgi na zakup kas
+- Odstąpienie od poboru podatku
+- Wypłata nadwyżki podatku
+- Oznaczenia szczególnych transakcji w deklaracji (VAT marża, złoto, transakcja trójstronna)
+
+*INSTRUKCJA OBSŁUGI*
+
+Uwaga: Część nazewnictwa może różnić się od tego, które występuje w oryginalnym polskim tłumaczeniu ERPNext.
+
+Wymagania w stosunku do użytkowników:
+
+- Do sprzedaży zawsze jest tworzona i zatwierdzana faktura sprzedaży, w dniu sprzedaży.
+- Do zakupów towarów i usług zawsze tworzona jest faktura zakupu. 
+- Ręczne wpisy dziennika nie są używane do sprzedaży, ani zakupów, faktur, rachunków itd., jeśli występuje VAT. Do tego służy faktura zakupu, lub faktura sprzedaży.
+
+Plan kont:
+
+- Plan kont musi zawierać co najmniej jedno konto do VAT należnego (od sprzedaży, do wpłacenia do US)
+- Plan kont musi zawierać co najmniej jedno konto do VAT naliczonego (do zwrotu)
+Konta tworzy się z poziomu widoku drzewa księgi głównej. ERPNext nie pozwala księgować pozycji w węzłach będących grupami. Jeśli istnieje potrzeba księgowania pozycji "ogólnych", nie pasujących do żadnego konta szczegółowego, można np. utworzyć konto szczegółowe z taką samą nazwą, jak grupa, ale jakimś dopiskiem, np. "pozostałe" i nie zaznaczać, że jest grupą.
+
+Przykładowa konfiguracja podatków w ERPNext:
+
+ERPNext pozwala definiować podatki na kilka sposobów. Aplikacja JPK_V7M powinna chyba poradzić sobie z każdym z nich. Dla początkującego użytkownika mechanizmy działające w ERPNext mogą wydawać sie skomplikowane i dające niezrozumiałe efekty, szczególnie dla transakcji, w których występują pozycje z różnymi stawkami VAT. Dlatego poniżej przedstawiowny jest przykładowy sposób.
+
+W proponowanej konfiguracji używane są: szablony podatku dla produktów, szablony podatku dla sprzedaży i szablony podatku dla zakupów.
+
+- Muszą być utworzone konta do VAT należnego i naliczonego. Powinno wystarczyć jedno konto do każdego z nich, ale lepiej utworzyć oddzielne konta do każdej ze stawek. Dzięki temu łatwiej będzie wychwycić ewentualne błędy.
+- Należy utworzyć szablony podatku dla produktów, z odpowiednimi stawkami. W każdym szablonie można dodać odpowiednie konta do podatku naliczonego i należnego, z podanymi stawkami. 
+Przykład szablonu podatku dla produktów: 
+Załóżmy, że mamy produkt ze stawką podstawową (23%), konto księgowe nazwane "VAT 23%" dla podatku należnego i "VAT 23% naliczony" dla podatku naliczonego (ERPNext nie pozwala użyć takiej samej nazwy dla 2 różnych kont). Tworzymy szablon podatku dla produktów i nazywamy go np. "VAT stawka podstawowa". W tym szablonie dodajemy konto "VAT 23%" ze stawką 23 i "VAT 23% naliczony", również ze stawką 23.
+- Szablony podatku dla produktów można przypisać do całych grup produktów, do konkretnych produktów (jeśli mają inną stawkę VAT niż grupa), lub wybierać ręcznie przy tworzeniu dokumentu handlowego. Przypisanie szablonu do grupy wydaje się być najwygodniejsze.
+- Tworzymy szablon podatku dla sprzedaży, w którym podajemy wszystkie konta VAT związane z podatkiem należnym i szablon podatku dla zakupów, w którym podajemy wszystkie konta VAT związane z podatkiem naliczonym. Jako stawkę wpisujemy 0 (zero!) - nie zostawiamy domyślnie podanej stawki. Jeśli wpiszemy stawkę inną niż 0, to ERPNext będzie naliczał podatek dwukrotnie: z szablonu dla sprzedaży/zakupów i z szablonu dla produktu.
+Przykład szablonu podatku dla sprzedaży (analogicznie działają szablony dla zakupów):
+Załóżmy, że mamy konta księgowe dla stawek 7% i 23% dla podatku należnego, nazwane "VAT 23%" i "VAT 7%". Tworzymy szablon podatku dla sprzedaży i nazywamy go np. "VAT sprzedaż". W tym szablonie podajemy konta "VAT 23%" i "VAT 7%", ale zmieniamy stawki na 0.
+- Tworząc dokument handlowy, np. fakturę sprzedaży, wybieramy utworzony wcześniej szablon, np. "VAT sprzedaż". Jeśli do produktów lub grup nie zostały przypisane szablony podatku dla produktów, to wybieramy je ręcznie w widoku pełnej edycji wiersza.
+Co powinno się stać w tym momencie: ERPNext powinien użyć tych kont, które zostały zdeklarowane w danym szablonie podatku dla sprzedaży, lub zakupów, ale ze stawkami przypisanymi w szablonie dla produktów. Konta, które występują w szablonie dla produktów, ale nie występują w szablonie dla sprzedaży (lub zakupów), nie powinny być użyte. Jeśli przy wybieraniu kolejnych pozycji dodane zostały konta, których nie ma w szablonie dla sprzedaży (lub zakupów), trzeba jeszcze raz wybrać ten sam szablon - niewłaściwe konta powinny zniknąć.
+
+Informacje ułatwiające pracę:
+
+- Jeśli produkt/usługa z faktury zakupu nie jest czymś, co trzeba śledzić (towar lub usługa do dalszej sprzedaży, materiał do produkcji, środek trwały itp.), nie trzeba tworzyć nowych pozycji (ang. Item): w widoku edycji szczegółowej można wpisać nazwę pozycji (może być bardzo ogólna, np. "Materiały biurowe"), bez wybierania kodu pozycji. Mimo to zalecane jest tworzenie "pełnych" pozycji i przypisywanie im odpowiednich kont kosztowych, dla przyspieszenia pracy w przyszłości.
+
+Księgowanie SAD/PZC:
+
+Najpierw należy przyjąć fakurę od dostawcy, w cenach zakupu, bez VAT. Ta faktura nie trafi do JPK, ale z niej zostaną pobrane potrzebne dane.
+Następnie tworzymy wpis księgowy (ang. Journal Entry), a w nim:
+- Podajemy odpowiednie konta, w tym konto do VAT naliczonego i cła. Wpisujemy kwoty podatku i cła. 
+- Przechodzimy do sekcji z referencjami, zaznaczamy "JPK: IMP". Wybieramy fakturę zakupu, wpisujemy referencyjną wartość netto z dokumentu celnego, wpisujemy numer i datę dokumentu SAD/PZC w miejsce numeru i daty faktury (ang. Bill No i Bill Date). Zapisujemy i jeśli jesteśmy pewni, że jest poprawnie, to zatwierdzamy.
+
+*Konfiguracja JPK*
+
+(Krok 1) Należy zacząć od zaimportowania kodów urzędów skarbowych z pliku XSD ze strony ministerstwa, lub dodania potrzebnego kodu (lub kodów) ręcznie. Kody nie są wprowadzone do aplikacji na stałe, ponieważ zwykle użytkownikowi potrzebny jest tylko 1 kod. W zamian aplikacja zawiera importer, który pozwala na dodanie aktualnych kodów bez czekania na wydanie aktualizacji aplikacji, gdyby kody uległy zmianie.
+
+(Opcja 1) Import kodów urzędów skarbowych:
+- Ze strony ministerstwa (https://www.podatki.gov.pl/e-deklaracje/dokumentacja-it/struktury-dokumentow-xml/#slowniki) należy pobrać odpowiedni plik XSD. Na dzień tworzenia tekstu jest to "KodyUrzedowSkarbowych_v7-0E".
+- W ERPNext przejść do sekcji JPK i wybrać importer kodów urzędów skarbowych.
+- W importerze kliknąć przycisk "Załącz" i wybrać pobrany wcześniej plik XSD.
+- Jeśli plik został poprawnie załączony, kliknąć "Import". Zaczekać na komunikat o zakończeniu importu. Gotowe.
+
+(Opcja 2) Ręczne dodawanie kodów urzędów skarbowych:
+- W ERPNext przejść do sekcji JPK i wybrać Kody urzędów skarbowych.
+- W widoku listy kodów, w prawym górnym rogu, kliknąć przycisk "Dodaj".
+- Wpisać nazwę urzędu skarbowego (może być dowolna - nie musi być oficjalna, może być skrócona itp.), oraz kod urzędu (4 cyfry - aplikacja nie weryfikuje poprawności). Kliknąć "Zapisz". Gotowe.
+
+(Krok 2) W głównych ustawieniach księgowych ERPNext, w ustawieniach firmy, musi być podany numer identyfikacji podatkowej (ang. Tax ID). Jeśli go nie ma, należy go podać i zapisać ustawienia.
+
+(Krok 3) Ustawienia firmy w sekcji JPK:
+- W sekcji JPK przejść do "Ustawień firmy" i kliknąć "Dodaj" (lub wybrać istniejącą pozycję).
+- Wybrać firmę z listy. Nazwa i NIP zostaną wczytane z ustawień ERPNext.
+- Wybrać urząd skarbowy. Wczytany zostanie numer urzędu.
+- Wybrać, czy podmiot jest osobą fizyczną (np. jednoosobowa działalność gospodarcza), czy nie (np. sp. z o.o.).
+- Wpisać adres e-mail i (opcjonalnie) numer telefonu do kontaktu.
+- W przypadku osoby fizycznej, wpisać imię, nazwisko i datę urodzenia.
+- Wybrać odpowiednio konta i/lub grupy kont, na których księgowany jest podatek naliczony i należny. Jeśli wybrane zostaną jakiekolwiek grupy, użyte zostaną wszystkie subkonta należące do tych grup.
+- Kliknąć "Zapisz". Gotowe.
+
+*Tworzenie pliku JPK_V7M*
+
+- W sekcji JPK przejść do JPK_V7M. W widoku listy klinąć "Dodaj".
+- Przeczytać i zaakceptować pouczenie.
+- Poprawić rok i miesiąc, którego będzie dotyczył plik JPK_V7M, jeśli ma być inny, niż domyślnie wybrany.
+- Nie zaznaczać, że to jest korekta - na dzień pisania tekstu ta funkcjonalność nie była zaimplementowana.
+- Wpisać kwotę nadwyżki podatku neliczonego przeniesionej z poprzedniego miesiąca, jeśli wystąpiła.
+- Wpisać przyczyny korekt, jeśli wystąpiły w okresie, którego dotyczy JPK.
+- Wybrać ustawienia firmy, której dotyczy JPK. Wczytane zostaną wymagane dane.
+- Kliknąć "Zapisz" w prawym górnym rogu. Pojawi się nowy przycisk. Kliknąć Generuj XML.
+- Jeśli dokumenty w systemie (faktury, wpisy księgowe) nie mają błędów uniemożliwiających ich przetworzenie, z lewej strony pojawi się załącznik z plikiem XML. Sprawdzić zawartość pliku pod kątem poprawności danych, np. przy pomocy narzędzia udostępnionego przez ministerstwo: https://e-mikrofirma.mf.gov.pl/jpk-form/read-file
+- Jeśli dane są zgodne ze stanem faktycznym, wysłać plik przy pomocy https://e-mikrofirma.mf.gov.pl/jpk-client

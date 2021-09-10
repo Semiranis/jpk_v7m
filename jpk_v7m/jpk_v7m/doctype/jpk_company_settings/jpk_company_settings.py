@@ -53,6 +53,7 @@ class JPKCompanySettings(Document):
 				return True
 		return False
 	
+
 def get_leaf_accounts(account_name):
 	"""
 	Returns list of all leaf accounts (not groups) of the account with given name.
@@ -71,6 +72,7 @@ def get_leaf_accounts(account_name):
 	else:
 		# string would be iterated as single letters
 		return [account_name]
+
 
 def get_leaf_accounts_recursive(account_name, leafs):
 	"""
